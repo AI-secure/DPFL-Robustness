@@ -1,0 +1,47 @@
+type: mnist
+lr: 0.02
+momentum: 0.9
+decay: 0.0005
+batch_size: 50
+test_batch_size: 50
+epochs: 10
+internal_epochs: 1 
+binary_cls: true 
+
+withDP: true
+max_clip_norm: 1.0 
+noise_multiplier: 20 
+delta: 0.00001  
+no_models: 10
+number_of_total_participants: 10
+pre_path: saved_models/mnist_insdp_backdoor
+
+n_runs: 1
+
+sampling_dirichlet: false
+dirichlet_alpha: 0.5
+
+
+is_poison: true
+poisoning_per_batch: 10
+adv_method: 'backdoor'  # labelflip, backdoor
+num_adv: 1
+dba: false
+
+record_p: false
+record_local_train: false
+poison_label_swap: 0
+poison_pattern: [[23,26],[23,27],  
+                  [24,26],[24,27],
+                  [25,25],[25,26],[25,26],
+                  [26,24],[26,25],[26,26],[26,27],
+                  [27,23],[27,24],[27,25],[27,26],[27,27]
+                  ]
+
+save_model: false
+save_on_epochs: [1]
+
+resumed_model: false
+resumed_model_name: ''
+resumed_model_path: ''
+

@@ -1,0 +1,34 @@
+type: mnist
+lr: 0.02
+momentum: 0.9
+decay: 0.0005
+batch_size: 60
+test_batch_size: 50
+epochs: 10                    # number of FL communication rounds
+internal_epochs: 10           # number of local epochs per rounds
+binary_cls: True           # number of local epochs per rounds
+
+withDP: true
+max_clip_norm: 0.7 
+noise_multiplier: 2.0
+delta: 0.0029 
+no_models: 20                 # number of selected participants per round 
+number_of_total_participants: 200
+pre_path: saved_models/mnist
+n_runs: 1                     # number of runs for Monte Carlo Approximation
+
+dpfl: max_model               #  median_per_layer; max_per_layer; max_model; median_model
+fl_aggregation: 'fedavg'      # rfa, krum, mkrum, bulyan, median, trmean
+sampling_dirichlet: false
+dirichlet_alpha: 0.5
+
+
+is_poison: false              # clean training
+record_local_train: false
+save_model: true              # save the latest epoch 
+save_on_epochs: [30]          # save the additional epoch 
+resumed_model: false
+resumed_model_name: ''
+resumed_model_path: ''
+
+

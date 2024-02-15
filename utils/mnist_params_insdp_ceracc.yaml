@@ -1,0 +1,34 @@
+type: mnist
+lr: 0.02
+momentum: 0.9
+decay: 0.0005
+batch_size: 50
+test_batch_size: 50
+epochs: 3
+internal_epochs: 1  
+binary_cls: true # binary classification
+
+withDP: true
+max_clip_norm: 1.0  
+noise_multiplier: 5 
+delta: 0.00001 
+no_models: 10
+number_of_total_participants: 10
+pre_path: saved_models/mnist_insdp
+n_runs: 1
+
+sampling_dirichlet: false
+dirichlet_alpha: 0.5
+
+
+save_model: true
+save_on_epochs: [3]
+
+is_poison: false
+
+record_local_train: false
+resumed_model: false
+resumed_model_name: ''
+resumed_model_path: ''
+
+

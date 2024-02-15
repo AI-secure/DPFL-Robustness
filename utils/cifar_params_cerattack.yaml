@@ -1,0 +1,58 @@
+type: cifar
+lr: 0.05 
+momentum: 0.9
+decay: 0.0005
+batch_size: 50
+test_batch_size: 50
+epochs: 4
+internal_epochs: 5 
+binary_cls: true
+
+withDP: true
+max_clip_norm:  1 
+noise_multiplier: 5.0 
+delta: 0.0029 
+no_models: 40 
+number_of_total_participants: 200
+pre_path: saved_models/cifar_userdp_backdoor
+n_runs: 1
+
+dpfl: max_model               #  median_per_layer; max_per_layer; max_model; median_model
+fl_aggregation: 'fedavg'      # rfa, krum, mkrum, bulyan, median, trmean
+sampling_dirichlet: false
+dirichlet_alpha: 0.5
+
+
+
+is_poison: true
+num_adv: 10
+dba: false
+
+
+adv_method: 'backdoor'  # labelflip, backdoor
+scale_factor: 50 
+random_vector_noise: 1000
+random_additive_noise: 3
+poisoning_per_batch: 50 
+
+
+
+poison_label_swap: 0
+# poison_pattern: [[27,29], [28,28],[29,27],[29,29]]
+poison_pattern: [[23,26], [23,27],  
+                  [24,26],[24,27],
+                  [25,25],[25,26],[25,26],
+                  [26,24],[26,25],[26,26],[26,27],
+                  [27,23],[27,24],[27,25],[27,26],[27,27]
+                  ]
+
+save_model: false 
+save_on_epochs: [1]
+
+resumed_model: false
+resumed_model_name: ''
+resumed_model_path: ''
+
+
+record_p: false
+record_local_train: false
